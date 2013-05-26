@@ -22,14 +22,14 @@ require([
             $.mobile.linkBindingEnabled = false;
             $.mobile.hashListeningEnabled = false;
             $.mobile.pushStateEnabled = false;
+
+            // Remove page from DOM when it's being replaced
+            $(document).on('pagehide', 'div[data-role="page"]', function(event, ui){
+                console.log('remove');
+                $(event.currentTarget).remove();
+            });
         }
     );
-
-    // Remove page from DOM when it's being replaced
-    $('div[data-role="page"]').on('pagehide', function (event, ui) {
-        console.log('remove');
-        $(event.currentTarget).remove();
-    });
 
     require([ "jquerymobile" ], function () {
         // Instantiates a new Backbone.js Mobile Router

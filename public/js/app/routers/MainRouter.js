@@ -10,7 +10,7 @@ define([
     var Router = Backbone.Router.extend({
         routes: {
             'events': 'getEvents',
-            'event/:id': 'getEvent',
+            'events/:id': 'getEvent',
             "": "main"
         },
 
