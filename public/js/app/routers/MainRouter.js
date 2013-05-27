@@ -2,12 +2,12 @@ define([
     'backbone',
     'app/views/AppView',
     'app/views/EventsView',
-    'app/views/EventView',
+    'app/views/EventDetailsView',
     'app/views/HeaderView',
     'app/views/FooterView',
     'app/views/JqmPageView',
     'app/models/event'
-], function (Backbone, AppView, EventsView, EventView, HeaderView, FooterView, jqMPageView, Event) {
+], function (Backbone, AppView, EventsView, EventDetailsView, HeaderView, FooterView, jqMPageView, Event) {
     var Router = Backbone.Router.extend({
         initialize: function() {
 
@@ -36,7 +36,7 @@ define([
                     var model = collection.get(id);                  
                     var eventPage = new jqMPageView();
                     eventPage.setHeaderView(new HeaderView(), true);
-                    eventPage.setContentView(new EventView({
+                    eventPage.setContentView(new EventDetailsView({
                         model: model
                     }));
                     eventPage.setFooterView();
