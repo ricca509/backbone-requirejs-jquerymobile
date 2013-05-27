@@ -13,8 +13,14 @@ define([
             'pagecreate': 'pageChange'
         },
 
-        setHeaderView: function(view) {
+        setHeaderView: function(view, addBackButton) {
             this.headerView = view;
+            
+            if (addBackButton) {
+                $.mobile.page.prototype.options.addBackBtn = true;
+            } else {
+                $.mobile.page.prototype.options.addBackBtn = false;
+            }
         },
 
         setFooterView: function(view) {
@@ -29,30 +35,40 @@ define([
             this.$el.html(_.template(jQmPageTemplate));
             this.$el.attr('data-role', 'page');
 
-            this.$('[data-role="header"]').html(new this.headerView().render().$el.children());
-            this.$('[data-role="content"]').html(new this.contentView().render().$el);
-            this.$('[data-role="footer"]').html(new this.footerView().render().$el.children());
+            if (this.headerView) {
+                this.$('[data-role="header"]').html(new this.headerView().render().$el.children());
+            } else {
+                this.$('[data-role="header"]').remove();
+            }
+            if (this.contentView) {
+                this.$('[data-role="content"]').html(new this.contentView().render().$el);
+            }
+            if (this.footerView) {
+                this.$('[data-role="footer"]').html(new this.footerView().render().$el.children());
+            } else {
+                this.$('[data-role="footer"]').remove();
+            }
 
-            this.$('[data-role="page"]').on( "pagecreate", $.proxy( this.pageChange, this ) );
+            this.$('[data-role="page"]').on( "pagecreate", $.proxy( this.onPageCreate, this ) );
 
             return this;
         },
 
-        navigate: function() {
+        navigate: function(transition) {
             var page = this.render();
 
-            var transition = $.mobile.defaultPageTransition;
+            transition || $.mobile.defaultPageTransition;
 
             // Add the page to the DOM
             $('body').append(page.$el);
 
             // Programatically changes to the page
-            $.mobile.changePage( page.$el , { reverse: false, changeHash: false, transition: transition } );
+            $.mobile.changePage( page.$el , { reverse: true, changeHash: false, transition: transition } );
         },
 
-        pageChange: function() {
+        onPageCreate: function() {
             var that = this;
-            console.log('change event ' + that.cid );
+            console.log('Create event ' + that.cid );
         }
 
     });

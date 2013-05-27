@@ -11,7 +11,7 @@ define([
         routes: {
             'events': 'getEvents',
             'events/:id': 'getEvent',
-            "": "main"
+            '': 'main'
         },
 
         main: function () {
@@ -20,7 +20,7 @@ define([
 
         getEvent: function(id) {
             var eventPage = new jqMPageView();
-            eventPage.setHeaderView(HeaderView);
+            eventPage.setHeaderView(HeaderView, true);
             eventPage.setContentView(EventView);
             eventPage.setFooterView(FooterView);
             eventPage.navigate();
