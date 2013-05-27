@@ -36,15 +36,15 @@ define([
             this.$el.attr('data-role', 'page');
 
             if (this.headerView) {
-                this.$('[data-role="header"]').html(new this.headerView().render().$el.children());
+                this.$('[data-role="header"]').html(this.headerView.render().$el.children());
             } else {
                 this.$('[data-role="header"]').remove();
             }
             if (this.contentView) {
-                this.$('[data-role="content"]').html(new this.contentView().render().$el);
+                this.$('[data-role="content"]').html(this.contentView.render().$el);
             }
             if (this.footerView) {
-                this.$('[data-role="footer"]').html(new this.footerView().render().$el.children());
+                this.$('[data-role="footer"]').html(this.footerView.render().$el.children());
             } else {
                 this.$('[data-role="footer"]').remove();
             }
@@ -63,7 +63,7 @@ define([
             $('body').append(page.$el);
 
             // Programatically changes to the page
-            $.mobile.changePage( page.$el , { reverse: true, changeHash: false, transition: transition } );
+            $.mobile.changePage( page.$el , { changeHash: false, transition: transition } );
         },
 
         onPageCreate: function() {

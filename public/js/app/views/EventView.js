@@ -1,12 +1,12 @@
 define([
     'jquery',
     'backbone',
-    'underscore'
-], function($, Backbone, _, page1Tpl) {
+    'underscore',
+    'text!templates/EventItemDetailsTemplate.html',
+], function($, Backbone, _, eventItemDetailsTemplate) {
     var View = Backbone.View.extend({
         render: function() {
-            this.$el.html("element");
-
+            this.$el.html(_.template(eventItemDetailsTemplate, this.model.toJSON()));
             return this;
         }
     });

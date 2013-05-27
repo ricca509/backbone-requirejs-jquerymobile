@@ -2,14 +2,34 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'text!templates/eventElementTemplate.html'
-], function($, Backbone, _, page1Tpl) {
+    'app/views/EventListItemView'
+], function($, Backbone, _, EventListItemView) {
     var View = Backbone.View.extend({
-        render: function() {
-            this.$el.html(page1Tpl);
+        tagName: 'ul',
+
+        attributes: {
+            'data-role': 'listview'
+        },
+
+        initialize: function() {
+            this.collection.on('add', this.addOne, this);
+            this.collection.on('reset', this.addAll, this);
+
+        },
+        render: function() {            
 
             return this;
-        }
+        },
+        addAll: function() {
+            this.collection.each(addOne);  
+        },
+        addOne: function(event) {
+            var view = new EventListItemView({
+                model: event
+            });
+
+            this.$el.prepend(view.render().$el);
+        }        
     });
 
     return View;
