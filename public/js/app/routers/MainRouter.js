@@ -29,13 +29,16 @@ define([
         },
 
         getEvent: function(id) {
+            $.mobile.loading( 'show' );
             var evCollection = new Event.collection();
 
             evCollection.fetch({
                 success: function(collection, response, options) {  
                     var model = collection.get(id);                  
                     var eventPage = new jqMPageView();
-                    eventPage.setHeaderView(new HeaderView(), true);
+                    eventPage.setHeaderView(new HeaderView({
+                        model: model
+                    }), true);
                     eventPage.setContentView(new EventDetailsView({
                         model: model
                     }));
@@ -46,6 +49,7 @@ define([
         },
 
         getEvents: function () {
+            $.mobile.loading( 'show' );
             var evCollection = new Event.collection();            
 
             var eventPage = new jqMPageView();

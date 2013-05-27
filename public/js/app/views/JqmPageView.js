@@ -9,8 +9,10 @@ define([
 
         },
 
-        events: {
-            'pagecreate': 'pageChange'
+        tagName: 'div',
+
+        attributes: {
+            'data-role': 'page'
         },
 
         setHeaderView: function(view, addBackButton) {
@@ -33,7 +35,6 @@ define([
 
         render: function() {
             this.$el.html(_.template(jQmPageTemplate));
-            this.$el.attr('data-role', 'page');
 
             if (this.headerView) {
                 this.$('[data-role="header"]').html(this.headerView.render().$el.children());
