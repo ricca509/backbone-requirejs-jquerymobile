@@ -2,7 +2,7 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'text!templates/EventItemDetailsTemplate.html',
+    'text!templates/EventDetailsTemplate.html',
 ], function($, Backbone, _, eventItemDetailsTemplate) {
     var View = Backbone.View.extend({
         render: function() {
