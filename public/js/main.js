@@ -13,23 +13,9 @@ require.config({
 require([
     "jquery",
     "backbone",
-    "app/routers/MainRouter"
+    "app/routers/MainRouter",
+    "app/helpers/jQmInit"
 ], function ($, Backbone, MainRouter) {
-    $(document).on("mobileinit",
-        // Set up the "mobileinit" handler before requiring jQuery Mobile's module
-        function () {
-            $.mobile.ajaxEnabled = false;
-            $.mobile.linkBindingEnabled = false;
-            $.mobile.hashListeningEnabled = false;
-            $.mobile.pushStateEnabled = false;
-
-            // Remove page from DOM when it's being replaced
-            $(document).on('pagehide', 'div[data-role="page"]', function(event, ui){
-                console.log('remove');
-                $(event.currentTarget).remove();
-            });
-        }
-    );
 
     require([ "jquerymobile" ], function () {
         // Instantiates a new Backbone.js Mobile Router

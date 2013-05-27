@@ -27,6 +27,7 @@ define([
 
         render: function() {
             this.$el.html(_.template(jQmPageTemplate));
+            this.$el.attr('data-role', 'page');
 
             this.$('[data-role="header"]').html(new this.headerView().render().$el.children());
             this.$('[data-role="content"]').html(new this.contentView().render().$el);
@@ -39,7 +40,7 @@ define([
 
         navigate: function() {
             var page = this.render();
-            page.$el.attr('data-role', 'page');
+
             var transition = $.mobile.defaultPageTransition;
 
             // Add the page to the DOM
