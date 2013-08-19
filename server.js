@@ -32,73 +32,11 @@ app.get('/events', function(req, res) {
 				submitted: "2013-05-26T18:35Z",
 				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
 				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1237",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1238",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1239",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1240",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1241",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1242",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1243",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
-			},
-			{
-				id: "1244",
-				eventName: "Sunset Celebration Weekend 2013 - June 1 & 2, 10am-5pm",
-				message: "Organized by Sunset Magazine",
-				submitted: "2013-05-26T18:35Z",
-				eventLocation: "Sunset Magazine Headquarters and Gardens, 80 Willow Rd, Menlo Park, CA",
-				eventDate: "June 1, 2013 at 10:00 AM"
 			}
 		]);
-	}, 1000);	
+	}, 1000);
 });
 
-app.listen(3000);
+app.listen(3000, function() {
+	console.log("Server listening onport 3000");
+});
