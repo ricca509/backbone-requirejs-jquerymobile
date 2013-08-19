@@ -1,0 +1,24 @@
+{
+  "name": "backbone-requirejs-jquerymobile",
+  "version": "0.1.0",
+  "description": "A boilerplate to use backbone and requirejs with the event model of jQuery Mobile",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~3.2.5",
+    "stylus": "~0.32.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricca509/backbone-requirejs-jquerymobile.git"
+  },
+  "author": "",
+  "license": "BSD"
+}

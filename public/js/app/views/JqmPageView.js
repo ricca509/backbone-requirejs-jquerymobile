@@ -1,8 +1,9 @@
 define([
-    'backbone',
+    'jquery',
     'underscore',
+    'backbone',
     'text!templates/jQmPageTemplate.html'
-], function(Backbone, _, jQmPageTemplate) {
+], function($, _, Backbone, jQmPageTemplate) {
 
     var View = Backbone.View.extend({
         initialize: function() {
@@ -17,7 +18,7 @@ define([
 
         setHeaderView: function(view, addBackButton) {
             this.headerView = view;
-            
+
             if (addBackButton) {
                 $.mobile.page.prototype.options.addBackBtn = true;
             } else {
@@ -58,7 +59,7 @@ define([
         navigate: function(transition) {
             var page = this.render();
 
-            transition || $.mobile.defaultPageTransition;
+            transition = transition || $.mobile.defaultPageTransition;
 
             // Add the page to the DOM
             $('body').append(page.$el);

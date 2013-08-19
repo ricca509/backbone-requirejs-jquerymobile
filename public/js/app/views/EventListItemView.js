@@ -1,9 +1,9 @@
 define([
     'jquery',
-    'backbone',
     'underscore',
-    'text!templates/EventListItemTemplate.html',
-], function($, Backbone, _, eventListItemTemplate) {
+    'backbone',
+    'text!templates/EventListItemTemplate.html'
+], function($, _, Backbone, eventListItemTemplate) {
 	var View = Backbone.View.extend({
 		tagName: 'li',
 
@@ -16,7 +16,7 @@ define([
 			return this;
 		},
 
-		goToDetails: function() {			
+		goToDetails: function() {
 			Backbone.history.navigate('events/' + this.model.id, { trigger: true });
 		}
 	});

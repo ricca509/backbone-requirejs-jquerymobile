@@ -33,8 +33,8 @@ define([
             var evCollection = new Event.collection();
 
             evCollection.fetch({
-                success: function(collection, response, options) {  
-                    var model = collection.get(id);                  
+                success: function(collection, response, options) {
+                    var model = collection.get(id);
                     var eventPage = new jqMPageView();
                     eventPage.setHeaderView(new HeaderView({
                         model: model
@@ -44,27 +44,27 @@ define([
                     }));
                     eventPage.setFooterView();
                     eventPage.navigate('slide');
-                }                
-            });                
+                }
+            });
         },
 
         getEvents: function () {
             $.mobile.loading( 'show' );
-            var evCollection = new Event.collection();            
+            var evCollection = new Event.collection();
 
             var eventPage = new jqMPageView();
             eventPage.setHeaderView(new HeaderView());
             eventPage.setContentView(new EventsView({
                 collection: evCollection
-            }));        
+            }));
             eventPage.setFooterView();
             evCollection.fetch({
-                success: function(collection, response, options) {                    
+                success: function(collection, response, options) {
                     eventPage.navigate();
-                }                
-            });                    
+                }
+            });
         }
-    })
+    });
 
     return Router;
 });

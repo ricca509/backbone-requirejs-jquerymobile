@@ -1,9 +1,9 @@
 define([
     'jquery',
-    'backbone',
     'underscore',
+    'backbone',
     'app/views/EventListItemView'
-], function($, Backbone, _, EventListItemView) {
+], function($, _, Backbone, EventListItemView) {
     var View = Backbone.View.extend({
         tagName: 'ul',
 
@@ -16,12 +16,12 @@ define([
             this.collection.on('reset', this.addAll, this);
 
         },
-        render: function() {            
+        render: function() {
 
             return this;
         },
         addAll: function() {
-            this.collection.each(addOne);  
+            this.collection.each(addOne);
         },
         addOne: function(event) {
             var view = new EventListItemView({
@@ -29,7 +29,7 @@ define([
             });
 
             this.$el.prepend(view.render().$el);
-        }        
+        }
     });
 
     return View;
