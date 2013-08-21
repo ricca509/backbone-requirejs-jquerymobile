@@ -7,7 +7,7 @@ define([
 
     var View = Backbone.View.extend({
         initialize: function() {
-
+            $( document ).on( "pagechange", this.$el, this.onPageChange );
         },
 
         tagName: 'div',
@@ -19,19 +19,21 @@ define([
         setHeaderView: function(view, addBackButton) {
             this.headerView = view;
 
-            if (addBackButton) {
-                $.mobile.page.prototype.options.addBackBtn = true;
-            } else {
-                $.mobile.page.prototype.options.addBackBtn = false;
-            }
+            $.mobile.page.prototype.options.addBackBtn = addBackButton ? true : false;
+
+            return this;
         },
 
         setFooterView: function(view) {
             this.footerView = view;
+
+            return this;
         },
 
         setContentView: function(view) {
             this.contentView = view;
+
+            return this;
         },
 
         render: function() {
@@ -51,8 +53,6 @@ define([
                 this.$('[data-role="footer"]').remove();
             }
 
-            this.$('[data-role="page"]').on( "pagecreate", $.proxy( this.onPageCreate, this ) );
-
             return this;
         },
 
@@ -68,9 +68,8 @@ define([
             $.mobile.changePage( page.$el , { changeHash: false, transition: transition } );
         },
 
-        onPageCreate: function() {
-            var that = this;
-            console.log('Create event ' + that.cid );
+        onPageChange: function(event) {
+            window.scrollTo(0, 0);
         }
 
     });
