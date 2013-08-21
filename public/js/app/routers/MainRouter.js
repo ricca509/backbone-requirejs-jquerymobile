@@ -1,13 +1,12 @@
 define([
     'backbone',
-    'app/views/AppView',
     'app/views/EventsView',
     'app/views/EventDetailsView',
     'app/views/HeaderView',
     'app/views/FooterView',
     'app/views/JqmPageView',
     'app/models/event'
-], function (Backbone, AppView, EventsView, EventDetailsView, HeaderView, FooterView, jqMPageView, Event) {
+], function (Backbone, EventsView, EventDetailsView, HeaderView, FooterView, jqMPageView, Event) {
     var Router = Backbone.Router.extend({
         initialize: function() {
 
